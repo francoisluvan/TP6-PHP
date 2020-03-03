@@ -1,0 +1,30 @@
+
+Réponses à l'exercice B. SQL
+
+chemin des ressources : C:\Users\Utilisateur\Desktop\TP6 PHP\BD\Module BD\ressources\zoogd\tp5
+
+question 1 : SELECT noma, nommal,datem,dateguerison 
+FROM public.estmalade WHERE nommal='typhus'
+
+question 2 :SELECT numc FROM public.cage
+EXCEPT
+SELECT numc FROM public.animal
+
+question 3 : SELECT cage.numc,COUNT(animal.numc) FROM public.cage, public.animal 
+WHERE cage.typec='cage à fauves' AND animal.numc=cage.numc
+GROUP BY cage.numc ORDER BY count
+
+question 4: SELECT cage.numc,COUNT(animal.numc) FROM public.cage, public.animal 
+WHERE cage.typec='cage à fauves' AND animal.numc=cage.numc 
+GROUP BY cage.numc HAVING COUNT(animal.numc)>1 ORDER BY count ;
+
+
+question 5 : insert into animal values('gilderoy','lion','m','europe','15/06/1965',5);
+
+question 6 : insert into estmalade (noma, nommal, datem)
+select animal.noma, 'typhus, '27-07-2001' from animal
+where animal.numc=5
+
+question 7 : UPDATE animal SET pays='France' WHERE pays='Europe'
+
+question 8 : DELETE FROM animal WHERE numc='5'
